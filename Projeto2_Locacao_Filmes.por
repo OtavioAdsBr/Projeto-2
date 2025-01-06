@@ -2,7 +2,7 @@ programa
 {
   // Função para exibir o menu inicial do jogo
   funcao inteiro menuJogo()
-  {
+{
     inteiro opcao
     limpa() // Limpa o console antes de exibir o menu
     escreva("\nMENU INICIAL\n")
@@ -10,11 +10,11 @@ programa
     escreva(" 4. Alugar um filme\n 5. Devolver Filme\n 6. Filme mais locado\n 7. Sair do Programa \n\n")
     leia(opcao)  // Recebe a opção do usuário
     retorne opcao
-  }
+}
 
   // Função para cadastrar novos filmes no sistema
   funcao inteiro cadastrarFilmes(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
-  {
+ {
     inteiro quantidade
 
     // Verifica se o limite de filmes foi atingido
@@ -56,86 +56,90 @@ programa
             escreva("\nEntrada inválida. Digite 'SIM' ou 'NAO': ")
             leia(disponivel[i])
         }
-    }
+}
 
     filmesCadastrados += quantidade  // Atualiza o total de filmes cadastrados
     escreva("\nCadastro concluído com sucesso!\n")
     retorne filmesCadastrados
   }
 
-// Função para listar todos os filmes cadastrados e seus status
-funcao listarFilmes(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
+	// Função para listar todos os filmes cadastrados e seus status
+	funcao listarFilmes(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
 {
-    limpa() // Limpa o console antes de exibir a lista de filmes
-
-    se (filmesCadastrados == 0)
-    {
-        escreva("\nNenhum filme cadastrado.\n")
-        escreva("\nPressione ENTER para voltar ao menu...")
-        cadeia pausa
-        leia(pausa) // Variável auxiliar para pausar
-        limpa() // Limpa o console antes de retornar ao menu
-        retorne
-    }
-
-    escreva("\nLista de Filmes Cadastrados e Status:\n")
-    para (inteiro i = 0; i < filmesCadastrados; i++)
-    {
-        escreva("\nFilme ", i + 1, ":")
-        escreva("\nNome: ", nome[i])
-        escreva("\nAno: ", ano[i])
-        escreva("\nQuantidade de Aluguéis: ", qntAlug[i])
-        escreva("\nDisponível para locação? ", disponivel[i], "\n")
-    }
-
-    escreva("\nPressione ENTER para voltar ao menu...")
-    cadeia pausa
-    leia(pausa) // Variável auxiliar para pausar
-
-    limpa() // Limpa o console novamente antes de exibir o menu
+	    limpa() // Limpa o console antes de exibir a lista de filmes
+	
+	    se (filmesCadastrados == 0)
+	    {
+	        escreva("\nNenhum filme cadastrado.\n")
+	        escreva("\nPressione ENTER para voltar ao menu...")
+	        cadeia pausa
+	        leia(pausa) // Variável auxiliar para pausar
+	        limpa() // Limpa o console antes de retornar ao menu
+	        retorne
+	    }
+	
+	    escreva("\nLista de Filmes Cadastrados e Status:\n")
+	    para (inteiro i = 0; i < filmesCadastrados; i++)
+	    {
+	        escreva("\nFilme ", i + 1, ":")
+	        escreva("\nNome: ", nome[i])
+	        escreva("\nAno: ", ano[i])
+	        escreva("\nQuantidade de Aluguéis: ", qntAlug[i])
+	        escreva("\nDisponível para locação? ", disponivel[i], "\n")
+	    }
+	
+	    escreva("\nPressione ENTER para voltar ao menu...")
+	    cadeia pausa
+	    leia(pausa) // Variável auxiliar para pausar
+	
+	    limpa() // Limpa o console novamente antes de exibir o menu
 }
 
 
   // Função para listar apenas os filmes locados
-funcao locados(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
+	funcao locados(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
 {
-    limpa()  // Limpa o console antes de exibir os filmes locados
-    se (filmesCadastrados == 0)
-    {
-        escreva("\nNenhum filme cadastrado.\n")
-        escreva("\nPressione ENTER para voltar ao menu...")
-        cadeia pausa
-        leia(pausa)  // Pausa antes de voltar ao menu
-        limpa()  // Limpa o console antes de retornar ao menu
-        retorne
-    }
-
-    inteiro contador = 0  // Variável para contar filmes locados
-
-    escreva("\nLista de Filmes Locados:\n")
-    para (inteiro i = 0; i < filmesCadastrados; i++)
-    {
-        se (disponivel[i] == "SIM")
-        {
-            escreva("\nFilme ", contador + 1, ":")
-            escreva("\nNome: ", nome[i])
-            escreva("\nAno: ", ano[i])
-            escreva("\nQuantidade de Aluguéis: ", qntAlug[i])
-            escreva("\nJá está locado? ", disponivel[i], "\n")
-            contador++  // Incrementa o contador de filmes locados
-        }
-    }
-
-    // Verifica se nenhum filme foi locado
-    se (contador == 0)
-    {
-        escreva("\nNenhum filme locado no momento.\n")
-        escreva("\nPressione ENTER para voltar ao menu...")
-        cadeia pausa
-        leia(pausa)  // Pausa antes de voltar ao menu
-        limpa()  // Limpa o console antes de retornar ao menu
-    }
+	    limpa()  // Limpa o console antes de exibir os filmes locados
+	
+	    // Verifica se há filmes cadastrados
+	    se (filmesCadastrados == 0)
+	    {
+	        escreva("\nNenhum filme cadastrado no sistema.\n")
+	        escreva("\nPressione ENTER para voltar ao menu...")
+	        cadeia pausa
+	        leia(pausa)  // Pausa antes de voltar ao menu
+	        limpa()  // Limpa o console antes de retornar ao menu
+	        retorne
+	    }
+	
+	    inteiro contador = 0  // Variável para contar filmes locados
+	
+	    escreva("\nLista de Filmes Locados:\n")
+	    para (inteiro i = 0; i < filmesCadastrados; i++)
+	    {
+	        se (disponivel[i] == "SIM")  // Verifica se o filme está locado
+	        {
+	            escreva("\nFilme ", contador + 1, ":")
+	            escreva("\nNome: ", nome[i])
+	            escreva("\nAno: ", ano[i])
+	            escreva("\nQuantidade de Aluguéis: ", qntAlug[i])
+	            escreva("\nJá está locado? ", disponivel[i], "\n")
+	            contador++  // Incrementa o contador de filmes locados
+	        }
+	    }
+	
+	    // Verifica se nenhum filme foi locado
+	    se (contador == 0)
+	    {
+	        escreva("\nNenhum filme locado no momento.\n")
+	    }
+	
+	    escreva("\nPressione ENTER para voltar ao menu...")
+	    cadeia pausa
+	    leia(pausa)  // Pausa antes de voltar ao menu
+	    limpa()  // Limpa o console antes de retornar ao menu
 }
+
 
 
   // Função para alugar um filme
@@ -204,103 +208,103 @@ funcao alugar(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel
 
 
   // Função para devolver um filme locado
-funcao devolver(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
+	funcao devolver(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
 {
-    inteiro i, contador = 0
-    inteiro indices[10]  // Armazena os índices dos filmes locados
-
-    escreva("\nFilmes atualmente locados:\n")
-    para (i = 0; i < filmesCadastrados; i++)
-    {
-        se (disponivel[i] == "SIM")
-        {
-            escreva("\nOpção ", contador + 1, ":")  // Exibe a opção de devolução
-            escreva("\nNome: ", nome[i])
-            escreva("\nAno: ", ano[i])
-            escreva("\nQuantidade de Aluguéis: ", qntAlug[i])
-            escreva("\n")
-            indices[contador] = i  // Salva o índice real do filme
-            contador++
-        }
-    }
-
-    // Verifica se há filmes locados
-    se (contador == 0)
-    {
-        escreva("\nNenhum filme locado no momento.\n")
-        escreva("\nPressione ENTER para voltar ao menu...")
-        cadeia pausa
-        leia(pausa)  // Pausa antes de voltar ao menu
-        limpa()  // Limpa o console antes de retornar ao menu
-        retorne
-    }
-
-    escreva("\nEscolha o número do filme para devolver (1 a ", contador, "):\n")
-    leia(i)
-
-    // Valida a opção escolhida
-    se (i >= 1 e i <= contador)
-    {
-        inteiro indiceFilme = indices[i - 1]  // Obtém o índice real do filme
-        disponivel[indiceFilme] = "NAO"  // Atualiza para disponível
-        escreva("\nDevolução do filme ", nome[indiceFilme], " realizada com sucesso!\n")
-    }
-    senao
-    {
-        escreva("\nOpção inválida. Tente novamente.\n")
-    }
-
-    // Pausa antes de voltar ao menu
-    escreva("\nPressione ENTER para voltar ao menu...")
-    cadeia pausa
-    leia(pausa)  // Pausa antes de voltar ao menu
-    limpa()  // Limpa o console antes de retornar ao menu
+	    inteiro i, contador = 0
+	    inteiro indices[10]  // Armazena os índices dos filmes locados
+	
+	    escreva("\nFilmes atualmente locados:\n")
+	    para (i = 0; i < filmesCadastrados; i++)
+	    {
+	        se (disponivel[i] == "SIM")
+	        {
+	            escreva("\nOpção ", contador + 1, ":")  // Exibe a opção de devolução
+	            escreva("\nNome: ", nome[i])
+	            escreva("\nAno: ", ano[i])
+	            escreva("\nQuantidade de Aluguéis: ", qntAlug[i])
+	            escreva("\n")
+	            indices[contador] = i  // Salva o índice real do filme
+	            contador++
+	        }
+	    }
+	
+	    // Verifica se há filmes locados
+	    se (contador == 0)
+	    {
+	        escreva("\nNenhum filme locado no momento.\n")
+	        escreva("\nPressione ENTER para voltar ao menu...")
+	        cadeia pausa
+	        leia(pausa)  // Pausa antes de voltar ao menu
+	        limpa()  // Limpa o console antes de retornar ao menu
+	        retorne
+	    }
+	
+	    escreva("\nEscolha o número do filme para devolver (1 a ", contador, "):\n")
+	    leia(i)
+	
+	    // Valida a opção escolhida
+	    se (i >= 1 e i <= contador)
+	    {
+	        inteiro indiceFilme = indices[i - 1]  // Obtém o índice real do filme
+	        disponivel[indiceFilme] = "NAO"  // Atualiza para disponível
+	        escreva("\nDevolução do filme ", nome[indiceFilme], " realizada com sucesso!\n")
+	    }
+	    senao
+	    {
+	        escreva("\nOpção inválida. Tente novamente.\n")
+	    }
+	
+	    // Pausa antes de voltar ao menu
+	    escreva("\nPressione ENTER para voltar ao menu...")
+	    cadeia pausa
+	    leia(pausa)  // Pausa antes de voltar ao menu
+	    limpa()  // Limpa o console antes de retornar ao menu
 }
 
 
 
   // Função para exibir o filme mais locado
-funcao filmeMaisLocado(cadeia nome[], inteiro ano[], inteiro qntAlug[], inteiro filmesCadastrados)
+	funcao filmeMaisLocado(cadeia nome[], inteiro ano[], inteiro qntAlug[], inteiro filmesCadastrados)
 {
-    limpa()  // Limpa o console antes de exibir o filme mais locado
-
-    se (filmesCadastrados == 0)
-    {
-        escreva("\nNenhum filme cadastrado.\n")
-        escreva("\nPressione ENTER para voltar ao menu...")
-        cadeia pausa
-        leia(pausa) // Variável auxiliar para pausar
-        limpa() // Limpa o console antes de retornar ao menu
-        retorne
-    }
-
-    inteiro indiceMaisLocado = 0
-    para (inteiro i = 1; i < filmesCadastrados; i++)
-    {
-        se (qntAlug[i] > qntAlug[indiceMaisLocado])
-        {
-            indiceMaisLocado = i
-        }
-    }
-
-    // Verificando se há algum filme com aluguel
-    se (qntAlug[indiceMaisLocado] == 0)
-    {
-        escreva("\nNenhum filme foi alugado até o momento.\n")
-    }
-    senao
-    {
-        escreva("\nFilme mais locado:\n")
-        escreva("Nome: ", nome[indiceMaisLocado], "\n")
-        escreva("Ano de lançamento: ", ano[indiceMaisLocado], "\n")
-        escreva("Número de vezes alugado: ", qntAlug[indiceMaisLocado], "\n")
-    }
-
-    // Pausar antes de limpar o console
-    escreva("\nPressione ENTER para voltar ao menu...")
-    cadeia pausa
-    leia(pausa) // Variável auxiliar para pausar
-    limpa() // Limpa o console após pressionar ENTER, antes de retornar ao menu
+	    limpa()  // Limpa o console antes de exibir o filme mais locado
+	
+	    se (filmesCadastrados == 0)
+	    {
+	        escreva("\nNenhum filme cadastrado.\n")
+	        escreva("\nPressione ENTER para voltar ao menu...")
+	        cadeia pausa
+	        leia(pausa) // Variável auxiliar para pausar
+	        limpa() // Limpa o console antes de retornar ao menu
+	        retorne
+	    }
+	
+	    inteiro indiceMaisLocado = 0
+	    para (inteiro i = 1; i < filmesCadastrados; i++)
+	    {
+	        se (qntAlug[i] > qntAlug[indiceMaisLocado])
+	        {
+	            indiceMaisLocado = i
+	        }
+	    }
+	
+	    // Verificando se há algum filme com aluguel
+	    se (qntAlug[indiceMaisLocado] == 0)
+	    {
+	        escreva("\nNenhum filme foi alugado até o momento.\n")
+	    }
+	    senao
+	    {
+	        escreva("\nFilme mais locado:\n")
+	        escreva("Nome: ", nome[indiceMaisLocado], "\n")
+	        escreva("Ano de lançamento: ", ano[indiceMaisLocado], "\n")
+	        escreva("Número de vezes alugado: ", qntAlug[indiceMaisLocado], "\n")
+	    }
+	
+	    // Pausar antes de limpar o console
+	    escreva("\nPressione ENTER para voltar ao menu...")
+	    cadeia pausa
+	    leia(pausa) // Variável auxiliar para pausar
+	    limpa() // Limpa o console após pressionar ENTER, antes de retornar ao menu
 }
 
 
@@ -357,7 +361,7 @@ funcao filmeMaisLocado(cadeia nome[], inteiro ano[], inteiro qntAlug[], inteiro 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 4782; 
+ * @POSICAO-CURSOR = 10315; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
