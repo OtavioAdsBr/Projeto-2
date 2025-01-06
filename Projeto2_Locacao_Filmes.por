@@ -3,14 +3,30 @@ programa
   // Função para exibir o menu inicial do jogo
   funcao inteiro menuJogo()
 {
-    inteiro opcao
-    limpa() // Limpa o console antes de exibir o menu
-    escreva("\nMENU INICIAL\n")
-    escreva(" 1. Cadastrar um filme\n 2. Listar filmes cadastrados\n 3. Filmes Locados\n")
-    escreva(" 4. Alugar um filme\n 5. Devolver Filme\n 6. Filme mais locado\n 7. Sair do Programa \n\n")
-    leia(opcao)  // Recebe a opção do usuário
-    retorne opcao
+	inteiro opcao
+	faca
+{
+	limpa() // Limpa o console antes de exibir o menu
+	escreva("\nMENU INICIAL\n")
+	escreva(" 1. Cadastrar um filme\n 2. Listar filmes cadastrados\n 3. Filmes Locados\n")
+	escreva(" 4. Alugar um filme\n 5. Devolver Filme\n 6. Filme mais locado\n 7. Sair do Programa \n\n")
+	escreva("Escolha uma opção: ")
+	leia(opcao)  // Recebe a opção do usuário
+	
+	// Verifica se a opção está no intervalo permitido
+	 se (opcao < 1 ou opcao > 7)
+	{
+	  escreva("\nOpção inválida! Por favor, escolha uma opção entre 1 e 7.\n")
+	  escreva("Pressione ENTER para tentar novamente...")
+	  cadeia pausa
+	  leia(pausa) // Pausa antes de repetir o menu
+	 }
+	 
+	 } enquanto (opcao < 1 ou opcao > 7)  // Continua até o usuário inserir uma opção válida
+	
+	    retorne opcao
 }
+
 
   // Função para cadastrar novos filmes no sistema
   funcao inteiro cadastrarFilmes(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
@@ -361,7 +377,7 @@ funcao alugar(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 10315; 
+ * @POSICAO-CURSOR = 747; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
