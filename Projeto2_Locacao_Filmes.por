@@ -5,7 +5,7 @@ programa
 {
 	inteiro opcao
 	faca
-{
+	{
 	limpa() // Limpa o console antes de exibir o menu
 	escreva("\nMENU INICIAL\n")
 	escreva(" 1. Cadastrar um filme\n 2. Listar filmes cadastrados\n 3. Filmes Locados\n")
@@ -25,7 +25,7 @@ programa
 	 } enquanto (opcao < 1 ou opcao > 7)  // Continua até o usuário inserir uma opção válida
 	
 	    retorne opcao
-}
+	}
 	// Função para cadastrar novos filmes no sistema
 	funcao inteiro cadastrarFilmes(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
 	{
