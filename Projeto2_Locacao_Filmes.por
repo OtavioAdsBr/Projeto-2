@@ -26,11 +26,9 @@ programa
 	
 	    retorne opcao
 }
-
-
-	 // Função para cadastrar novos filmes no sistema
+	// Função para cadastrar novos filmes no sistema
 	funcao inteiro cadastrarFilmes(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
-{
+	{
 	    inteiro quantidade
 	
 	    // Verifica se o limite de filmes foi atingido
@@ -61,16 +59,34 @@ programa
 	        escreva("\nDigite o nome do filme ", i + 1 - filmesCadastrados, ": ")
 	        leia(nome[i])
 	
-	        escreva("Digite o ano de lançamento do filme ", i + 1 - filmesCadastrados, ": ")
-	        leia(ano[i])
+	        // Validação do ano de lançamento
+	        faca
+	        {
+	            escreva("Digite o ano de lançamento do filme ", i + 1 - filmesCadastrados, " (1888 a 2024): ")
+	            leia(ano[i])
 	
-	        escreva("Quantas vezes o filme foi alugado? ")
-	        leia(qntAlug[i])
+	            se (ano[i] < 1888 ou ano[i] > 2024)
+	            {
+	                escreva("\nAno inválido! Digite um ano entre 1888 e 2024.\n")
+	            }
+	        } enquanto (ano[i] < 1888 ou ano[i] > 2024)
+	
+	        // Validação da quantidade de vezes alugado
+	        faca
+	        {
+	            escreva("Quantas vezes o filme foi alugado? (número inteiro não negativo): ")
+	            leia(qntAlug[i])
+	
+	            se (qntAlug[i] < 0)
+	            {
+	                escreva("\nNúmero inválido! Digite um número inteiro não negativo.\n")
+	            }
+	        } enquanto (qntAlug[i] < 0)
 	
 	        escreva("O filme já está locado? (SIM ou NAO): ")
 	        leia(disponivel[i])
 	
-	        // Verifica se a entrada é válida
+	        // Verifica se a entrada para locação é válida
 	        enquanto (disponivel[i] != "SIM" e disponivel[i] != "NAO")
 	        {
 	            escreva("\nEntrada inválida. Digite 'SIM' ou 'NAO': ")
@@ -82,6 +98,7 @@ programa
 	    escreva("\nCadastro concluído com sucesso!\n")
 	    retorne filmesCadastrados
 }
+
 
 
 	// Função para listar todos os filmes cadastrados e seus status
@@ -110,7 +127,7 @@ programa
 	    }
 	
 	    escreva("\nPressione ENTER para voltar ao menu...")
-	    cadeia pausa
+	    cadeia pausa //Capturar a entrada do usuário e pausar a execução até que ele pressione ENTER.
 	    leia(pausa) // Variável auxiliar para pausar
 	
 	    limpa() // Limpa o console novamente antes de exibir o menu
@@ -385,7 +402,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 7714; 
+ * @POSICAO-CURSOR = 4506; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
