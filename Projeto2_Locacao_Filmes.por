@@ -5,7 +5,7 @@ programa
 {
 	inteiro opcao
 	faca
-	{
+{
 	limpa() // Limpa o console antes de exibir o menu
 	escreva("\nMENU INICIAL\n")
 	escreva(" 1. Cadastrar um filme\n 2. Listar filmes cadastrados\n 3. Filmes Locados\n")
@@ -25,7 +25,7 @@ programa
 	 } enquanto (opcao < 1 ou opcao > 7)  // Continua até o usuário inserir uma opção válida
 	
 	    retorne opcao
-	}
+}
 	// Função para cadastrar novos filmes no sistema
 	funcao inteiro cadastrarFilmes(cadeia nome[], inteiro ano[], inteiro qntAlug[], cadeia disponivel[], inteiro filmesCadastrados)
 	{
@@ -128,6 +128,7 @@ programa
 	
 	    escreva("\nPressione ENTER para voltar ao menu...")
 	    cadeia pausa //Capturar a entrada do usuário e pausar a execução até que ele pressione ENTER.
+	    
 	    leia(pausa) // Variável auxiliar para pausar
 	
 	    limpa() // Limpa o console novamente antes de exibir o menu
@@ -402,7 +403,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 4506; 
+ * @POSICAO-CURSOR = 3486; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
